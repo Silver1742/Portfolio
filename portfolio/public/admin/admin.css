@@ -178,3 +178,24 @@ body {
 }
 .alert-floating.ok { background: #1a3a2a; border: 1px solid #2e7d4f; color: #7be3a5; }
 .alert-floating.err { background: #3a1a1a; border: 1px solid #7d2e2e; color: #ff8a8a; }
+
+/* ---------- Confirmación (reemplaza confirm() nativo) ---------- */
+.confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.confirm-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.25);
+}

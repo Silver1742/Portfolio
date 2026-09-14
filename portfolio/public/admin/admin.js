@@ -41,6 +41,30 @@ async function apiFetch(path, options = {}) {
   return res.json();
 }
 
+function showConfirm(message) {
+  return new Promise((resolve) => {
+    const backdrop = document.getElementById("confirmModal");
+    document.getElementById("confirmMessage").textContent = message;
+    backdrop.classList.remove("d-none");
+
+    function cleanup(result) {
+      backdrop.classList.add("d-none");
+      okBtn.removeEventListener("click", onOk);
+      cancelBtn.removeEventListener("click", onCancel);
+      backdrop.removeEventListener("click", onBackdrop);
+      resolve(result);
+    }
+    const okBtn = document.getElementById("confirmOk");
+    const cancelBtn = document.getElementById("confirmCancel");
+    function onOk() { cleanup(true); }
+    function onCancel() { cleanup(false); }
+    function onBackdrop(e) { if (e.target === backdrop) cleanup(false); }
+    okBtn.addEventListener("click", onOk);
+    cancelBtn.addEventListener("click", onCancel);
+    backdrop.addEventListener("click", onBackdrop);
+  });
+}
+
 function showStatus(message, type = "ok") {
   const el = document.getElementById("statusMsg");
   el.textContent = message;
@@ -260,7 +284,7 @@ async function renderTable(key) {
   });
   container.querySelectorAll("[data-del]").forEach((btn) => {
     btn.addEventListener("click", async () => {
-      if (!confirm("¿Borrar este ítem? No se puede deshacer.")) return;
+      if (!(await showConfirm("¿Borrar este ítem? No se puede deshacer."))) return;
       try {
         await apiFetch(`${cfg.endpoint}/${btn.dataset.id}`, { method: "DELETE" });
         showStatus("Borrado.");
@@ -379,7 +403,7 @@ async function renderMessages() {
     </table>`;
   container.querySelectorAll("[data-delmsg]").forEach((btn) => {
     btn.addEventListener("click", async () => {
-      if (!confirm("¿Borrar este mensaje?")) return;
+      if (!(await showConfirm("¿Borrar este mensaje?"))) return;
       try {
         await apiFetch(`/api/messages/${btn.dataset.delmsg}`, { method: "DELETE" });
         renderMessages();
