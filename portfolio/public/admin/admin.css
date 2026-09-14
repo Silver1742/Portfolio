@@ -1,0 +1,180 @@
+:root {
+  --bg: #08080b;
+  --bg-elevated: #131318;
+  --bg-elevated-2: #1b1b22;
+  --border: #2a2a33;
+  --text: #eceef2;
+  --text-muted: #9a9aa6;
+  --accent: #ff1744;
+  --accent-2: #ff4d6d;
+  --accent-rgb: 255, 23, 68;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+.text-muted-custom { color: var(--text-muted) !important; }
+.surface { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 10px; }
+
+.brand-mark {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+/* ---------- Login ---------- */
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(var(--accent-rgb), 0.12), transparent 70%),
+    var(--bg);
+}
+.login-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.2rem;
+  width: 100%;
+  max-width: 380px;
+}
+
+/* ---------- Inputs / botones (mismo estilo que el sitio) ---------- */
+.app-input {
+  background: var(--bg-elevated-2) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+.app-input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 0.2rem rgba(var(--accent-rgb), 0.2) !important;
+  outline: none;
+}
+.form-label { color: var(--text-muted); font-size: 0.82rem; }
+
+.btn-neon {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-neon:hover { background: var(--accent-2); box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.35); color: #fff; }
+.btn-neon-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 6px;
+}
+.btn-neon-outline:hover { border-color: var(--accent); color: var(--accent); }
+.btn-sm { padding: 0.4rem 0.9rem; font-size: 0.8rem; }
+
+.btn-icon {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 6px;
+  width: 32px; height: 32px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-icon:hover { border-color: var(--accent); color: var(--accent); }
+.btn-icon.danger:hover { border-color: #ff4d4d; color: #ff4d4d; }
+
+/* ---------- Layout del dashboard ---------- */
+.admin-topbar {
+  height: 58px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+.admin-sidebar {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 0.4rem;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+@media (min-width: 768px) {
+  .admin-sidebar {
+    flex-direction: column;
+    border-right: 1px solid var(--border);
+    border-bottom: none;
+    min-height: calc(100vh - 58px);
+    padding: 1.2rem 0.6rem;
+  }
+}
+.admin-tab {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 0.55rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.admin-tab:hover { background: var(--bg-elevated-2); color: var(--text); }
+.admin-tab.active { background: rgba(var(--accent-rgb), 0.12); color: var(--accent); }
+
+/* ---------- Tablas ---------- */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.admin-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  background: var(--bg-elevated-2);
+  padding: 0.7rem 0.9rem;
+}
+.admin-table td {
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+  vertical-align: top;
+}
+.admin-table td.actions { white-space: nowrap; width: 1%; }
+.admin-table td.actions .btn-icon { margin-right: 0.3rem; }
+
+.empty-hint { color: var(--text-muted); font-size: 0.88rem; padding: 1rem; }
+
+/* ---------- Mensajes de estado ---------- */
+.alert-floating {
+  position: fixed;
+  top: 1rem; right: 1rem;
+  z-index: 2000;
+  padding: 0.7rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.alert-floating.ok { background: #1a3a2a; border: 1px solid #2e7d4f; color: #7be3a5; }
+.alert-floating.err { background: #3a1a1a; border: 1px solid #7d2e2e; color: #ff8a8a; }
