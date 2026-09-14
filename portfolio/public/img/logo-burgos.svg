@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <path
+    d="M 100 30 A 70 70 0 0 1 100 170 A 70 70 0 0 1 100 30 Z M 78 176 L 122 176 L 100 134 Z"
+    fill="#ffffff"
+    fill-rule="evenodd"
+    stroke="#ff1744"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+</svg>

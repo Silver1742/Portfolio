@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Ahorcado</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+    <div class="container">
+        <h1>🎯 Juego del Ahorcado</h1>
+        
+        <!-- Pantalla de inicio -->
+        <div id="startScreen" class="screen">
+            <h2>¡Bienvenido!</h2>
+            <input type="text" id="playerName" placeholder="Ingresa tu nombre" maxlength="30">
+            <button id="startBtn" disabled>JUGAR</button>
+        </div>
+        
+        <!-- Pantalla de juego -->
+        <div id="gameScreen" class="screen hidden">
+            <div class="game-info">
+                <div class="player-info">
+                    <span>Jugador: <strong id="displayName"></strong></span>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <span>⏱️ Tiempo: <strong id="timer">0</strong>s</span>
+                    </div>
+                    <div class="stat">
+                        <span>⭐ Puntos: <strong id="points">0</strong></span>
+                    </div>
+                    <div class="stat">
+                        <span>❤️ Vidas: <strong id="lives">6</strong></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hangman-container">
+                <canvas id="hangmanCanvas" width="200" height="250"></canvas>
+            </div>
+            
+            <div class="word-container">
+                <div id="wordDisplay" class="word"></div>
+            </div>
+            
+            <div class="keyboard" id="keyboard"></div>
+        </div>
+        
+        <!-- Pantalla de fin de juego -->
+        <div id="endScreen" class="screen hidden">
+            <h2 id="endTitle"></h2>
+            <div class="final-stats">
+                <p>Palabra: <strong id="finalWord"></strong></p>
+                <p>Puntos: <strong id="finalPoints"></strong></p>
+                <p>Tiempo: <strong id="finalTime"></strong>s</p>
+            </div>
+            <button id="saveScoreBtn">💾 GUARDAR SCORE</button>
+            <button id="showScoresBtn">🏆 VER TABLA DE POSICIONES</button>
+            <button id="playAgainBtn">🔄 JUGAR DE NUEVO</button>
+        </div>
+        
+        <!-- Pantalla de tabla de posiciones -->
+        <div id="scoresScreen" class="screen hidden">
+            <h2>🏆 Tabla de Posiciones</h2>
+            <div class="scores-table-container">
+                <table id="scoresTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Puntos</th>
+                            <th>Tiempo</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scoresBody"></tbody>
+                </table>
+            </div>
+            <div class="scores-actions">
+                <button id="downloadPdfBtn">📄 DESCARGAR PDF</button>
+                <button id="backToGameBtn">🔙 VOLVER AL JUEGO</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/game.js"></script>
+</body>
+</html>

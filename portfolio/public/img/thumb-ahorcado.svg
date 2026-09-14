@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240">
+  <rect width="400" height="240" fill="#131318"/>
+  <line x1="40" y1="205" x2="220" y2="205" stroke="#45454d" stroke-width="4" stroke-linecap="round"/>
+  <line x1="85" y1="205" x2="85" y2="35" stroke="#ff1744" stroke-width="5" stroke-linecap="round"/>
+  <line x1="85" y1="35" x2="180" y2="35" stroke="#ff1744" stroke-width="5" stroke-linecap="round"/>
+  <line x1="180" y1="35" x2="180" y2="58" stroke="#ff1744" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="180" cy="72" r="14" fill="none" stroke="#e8e8ec" stroke-width="4"/>
+  <line x1="180" y1="86" x2="180" y2="130" stroke="#e8e8ec" stroke-width="4" stroke-linecap="round"/>
+  <line x1="180" y1="98" x2="160" y2="118" stroke="#e8e8ec" stroke-width="4" stroke-linecap="round"/>
+  <line x1="180" y1="98" x2="200" y2="118" stroke="#e8e8ec" stroke-width="4" stroke-linecap="round"/>
+  <line x1="180" y1="130" x2="163" y2="160" stroke="#e8e8ec" stroke-width="4" stroke-linecap="round"/>
+  <line x1="180" y1="130" x2="197" y2="160" stroke="#e8e8ec" stroke-width="4" stroke-linecap="round"/>
+  <g>
+    <rect x="245" y="105" width="22" height="30" rx="3" fill="none" stroke="#9a9aa6" stroke-width="2.5"/>
+    <rect x="273" y="105" width="22" height="30" rx="3" fill="none" stroke="#9a9aa6" stroke-width="2.5"/>
+    <rect x="301" y="105" width="22" height="30" rx="3" fill="none" stroke="#9a9aa6" stroke-width="2.5"/>
+    <rect x="329" y="105" width="22" height="30" rx="3" fill="none" stroke="#9a9aa6" stroke-width="2.5"/>
+    <text x="256" y="128" font-family="monospace" font-size="16" fill="#ff1744" text-anchor="middle">J</text>
+    <text x="284" y="128" font-family="monospace" font-size="16" fill="#ff1744" text-anchor="middle">S</text>
+  </g>
+</svg>
